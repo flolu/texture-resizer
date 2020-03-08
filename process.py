@@ -7,6 +7,9 @@ from resize import resize
 
 def process_image(image_path):
   start_time = time.time()
+
+  print(f'process image: {image_path}')
+
   image = Image.open(image_path)
   fullname = os.path.basename(image_path)
   name = os.path.splitext(fullname)[0]
@@ -24,7 +27,7 @@ def process_image(image_path):
     print('\n')
     return
 
-  print(f"• process {colored(fullname, 'cyan')}")
+  print(f"\n• process {colored(fullname, 'cyan')}")
 
   sizes = []
   s = SMALLEST_SIZE

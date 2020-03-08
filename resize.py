@@ -7,7 +7,7 @@ Image.MAX_IMAGE_PIXELS = 933120000
 def resize(image, name, size):
   start_time = time.time()
 
-  print(f'\n\tresize to {str(size)}px')
+  print(f'\tresize to {str(size)}px')
   # TODO don't encode color if its a b/w texture
   resized = image.resize((size, size), Image.ANTIALIAS)
 
@@ -16,4 +16,4 @@ def resize(image, name, size):
   resized.save(out_path)
 
   elapsed_time = time.time() - start_time
-  print(f'\tdone in {round(elapsed_time)}s\n')
+  print(f'\tdone in {round(elapsed_time)}s')
