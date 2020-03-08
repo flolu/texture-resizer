@@ -1,11 +1,13 @@
-from PIL import Image
 import sys
 import os
+import time
 
+from PIL import Image
 from termcolor import colored
 
 Image.MAX_IMAGE_PIXELS = 933120000
 
+start_time = time.time()
 print('\n')
 
 image_path = sys.argv[1]
@@ -33,11 +35,16 @@ while get_size_in_pixels(i) <= image_size:
   sizes.append(i)
   i *= 2
 
-print(f"convert to: {', '.join(str(f'{get_size_in_pixels(s)}px') for s in sizes)} ")
+print(f"convert to: {', '.join(str(f'{get_size_in_pixels(s)}px') for s in sizes)}\n")
 
 for size in sizes:
-  print(f'start resizing to {str(size)}k')
+  start = time.time()
+  print(f'resize {str(size)}k')
   # TODO don't encode color if its a b/w texture
   resized = raw.resize((get_size_in_pixels(size), get_size_in_pixels(size)), Image.ANTIALIAS)
   resized.save(f'./out/{image_name}_{str(size)}k.jpg')
-  print(f'finished resizint to {str(size)}k (XX s)')
+  elapsed = time.time() - start
+  print(f'done in {round(elapsed)}s\n')
+
+elapsed_time = time.time() - start_time
+print(f'\nfinished converting {len(sizes)} textures in {round(elapsed_time)}s')
