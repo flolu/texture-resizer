@@ -14,3 +14,4 @@ python3 main.py input_image.tif
 ```
 python3 main.py ./directory
 ```
+Resized images will be located in `/out` after processing is done
