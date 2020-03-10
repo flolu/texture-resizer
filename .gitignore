@@ -2,3 +2,6 @@ out
 raw
 venv
 __pycache__/
+input
+in
+.vscode

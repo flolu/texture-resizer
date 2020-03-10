@@ -9,7 +9,7 @@ def resize(image, name, size):
   start_time = time.time()
 
   print(f'\tresize to {str(size)}px')
-  # TODO don't encode color if its a b/w texture
+  # TODO support for .exr
   resized = image.resize((size, size), Image.ANTIALIAS)
 
   OUT_DIR_NAME = 'out'
