@@ -11,6 +11,7 @@ def resize(image, name, size):
   print(f'\tresize to {str(size)}px')
   # TODO support for .exr
   resized = image.resize((size, size), Image.ANTIALIAS)
+  resized = resized.convert('RGB')
 
   OUT_DIR_NAME = 'out'
   out_directory = f'./{OUT_DIR_NAME}/'
@@ -18,7 +19,8 @@ def resize(image, name, size):
   if not os.path.exists(out_directory):
     os.makedirs(out_directory)
   print(f'\tsave to {out_path}')
-  resized.save(out_path)
+  # TODO input param for quality
+  resized.save(out_path, quality=100)
 
   elapsed_time = time.time() - start_time
   print(f'\tdone in {round(elapsed_time)}s')
