@@ -20,7 +20,7 @@ def process_image(image_path):
     print('\n')
     return
 
-  SMALLEST_SIZE = 1024
+  SMALLEST_SIZE = 2**12 # 4096
 
   if image_size < SMALLEST_SIZE:
     print(colored(f'skip processing {name} because it is smaller than {SMALLEST_SIZE}px (it is {str(image_size)}px)', 'yellow'))
